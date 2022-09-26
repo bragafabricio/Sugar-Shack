@@ -1,4 +1,4 @@
-package co.maplr.sugarshack.model;
+package co.maplr.sugarshack.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tbl_mapleSyrup")
-public class MapleSyrup {
+public class MapleSyrupEntity {
     @Id
     private String id;
     @Column
@@ -24,10 +24,10 @@ public class MapleSyrup {
     @Column
     private String type;
 
-    public MapleSyrup() {
+    public MapleSyrupEntity() {
     }
 
-    public MapleSyrup(String id, String name, String description, String image, double price, int stock, String type) {
+    public MapleSyrupEntity(String id, String name, String description, String image, double price, int stock, String type) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -40,8 +40,8 @@ public class MapleSyrup {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MapleSyrup)) return false;
-        MapleSyrup that = (MapleSyrup) o;
+        if (!(o instanceof MapleSyrupEntity)) return false;
+        MapleSyrupEntity that = (MapleSyrupEntity) o;
         return id.equals(that.id);
     }
 
