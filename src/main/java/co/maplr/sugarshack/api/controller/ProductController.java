@@ -7,17 +7,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/products")
-@Tag(name = "Products", description = "Maple Products Controller")
+@Tag(name = "products-controller", description = "Maple Products Controller")
 public class ProductController {
 
     private final ProductService productService;
@@ -30,9 +27,9 @@ public class ProductController {
     @Operation(summary = "Get Maple Catalogue")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved Maple Catalogue.")})
-    public ResponseEntity<List<MapleSyrupDto>> getCatalogue() {
+    public ResponseEntity<List<MapleSyrupDto>> getCatalogue(@RequestParam(required = false) String type) {
         return ResponseEntity.ok(
-                productService.findAll()
+                productService.findByType(type)
         );
     }
 
