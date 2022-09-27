@@ -1,11 +1,14 @@
 package co.maplr.sugarshack.domain.entity;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
 
+@Data
 @Entity
 @Table(name = "tbl_mapleSyrup")
 public class MapleSyrupEntity {
