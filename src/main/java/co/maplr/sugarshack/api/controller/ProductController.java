@@ -4,6 +4,7 @@ import co.maplr.sugarshack.api.dto.CatalogueItemDto;
 import co.maplr.sugarshack.api.dto.MapleSyrupDto;
 import co.maplr.sugarshack.domain.service.CatalogueItemService;
 import co.maplr.sugarshack.domain.service.ProductService;
+import co.maplr.sugarshack.enums.MappleType;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -32,7 +33,7 @@ public class ProductController {
     @Operation(summary = "Get Maple Catalogue")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved Maple Catalogue.")})
-    public ResponseEntity<List<CatalogueItemDto>> getCatalogue(@RequestParam(required = false) String type) {
+    public ResponseEntity<List<CatalogueItemDto>> getCatalogue(@RequestParam(required = false) MappleType type) {
         return ResponseEntity.ok(
                 catalogueItemService.findByType(type)
         );

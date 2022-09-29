@@ -22,15 +22,7 @@ class ProductControllerTest {
     @Test
     void shouldReturnOkForCatalog() throws Exception {
 
-        mvc.perform(get("/products"))
-                .andDo(print())
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void shouldReturnOkForCatalogWithType() throws Exception {
-
-        mvc.perform(get("/products?type=amber"))
+        mvc.perform(get("/products?type=CLEAR"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

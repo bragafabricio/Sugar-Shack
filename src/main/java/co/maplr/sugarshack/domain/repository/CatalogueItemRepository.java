@@ -11,5 +11,4 @@ public interface CatalogueItemRepository extends JpaRepository<CatalogueItemEnti
 
     List<CatalogueItemEntity> findByType(String type);
 
-    List<CatalogueItemEntity> findAll();
 }
