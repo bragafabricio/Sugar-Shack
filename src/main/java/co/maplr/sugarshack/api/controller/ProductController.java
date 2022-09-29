@@ -1,6 +1,8 @@
 package co.maplr.sugarshack.api.controller;
 
+import co.maplr.sugarshack.api.dto.CatalogueItemDto;
 import co.maplr.sugarshack.api.dto.MapleSyrupDto;
+import co.maplr.sugarshack.domain.service.CatalogueItemService;
 import co.maplr.sugarshack.domain.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,18 +20,21 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+    private final CatalogueItemService catalogueItemService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, CatalogueItemService catalogueItemService) {
+
         this.productService = productService;
+        this.catalogueItemService = catalogueItemService;
     }
 
     @GetMapping
     @Operation(summary = "Get Maple Catalogue")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved Maple Catalogue.")})
-    public ResponseEntity<List<MapleSyrupDto>> getCatalogue(@RequestParam(required = false) String type) {
+    public ResponseEntity<List<CatalogueItemDto>> getCatalogue(@RequestParam(required = false) String type) {
         return ResponseEntity.ok(
-                productService.findByType(type)
+                catalogueItemService.findByType(type)
         );
     }
 

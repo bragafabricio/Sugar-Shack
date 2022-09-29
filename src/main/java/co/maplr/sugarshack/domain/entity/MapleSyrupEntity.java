@@ -1,6 +1,8 @@
 package co.maplr.sugarshack.domain.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import java.util.Objects;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tbl_mapleSyrup")
 public class MapleSyrupEntity {
     @Id
@@ -26,19 +30,6 @@ public class MapleSyrupEntity {
     private int stock;
     @Column
     private String type;
-
-    public MapleSyrupEntity() {
-    }
-
-    public MapleSyrupEntity(String id, String name, String description, String image, double price, int stock, String type) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.image = image;
-        this.price = price;
-        this.stock = stock;
-        this.type = type;
-    }
 
     @Override
     public boolean equals(Object o) {
