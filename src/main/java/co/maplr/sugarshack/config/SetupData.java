@@ -1,6 +1,8 @@
 package co.maplr.sugarshack.config;
 
+import co.maplr.sugarshack.domain.entity.CatalogueItemEntity;
 import co.maplr.sugarshack.domain.entity.MapleSyrupEntity;
+import co.maplr.sugarshack.domain.repository.CatalogueItemRepository;
 import co.maplr.sugarshack.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,9 +13,14 @@ public class SetupData implements CommandLineRunner {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private CatalogueItemRepository catalogueItemRepository;
+
 
     @Override
     public void run(String... args) throws Exception {
+
+        //productRepository Set Up
         productRepository.save(new MapleSyrupEntity("1", "Green Maple Leaf",
                 "This Maple is so pure that it speaks quebecois.",
                 "ImageURL", 10.0, 100, "CLEAR"));
@@ -36,6 +43,26 @@ public class SetupData implements CommandLineRunner {
 
         productRepository.save(new MapleSyrupEntity("33", "Reddish Maple Leaf",
                 "Watch out! This is Corn Syrup! That's how it should be labelled.",
+                "ImageURL", 4.5, 999, "AMBER"));
+
+        //CatalogItemRepository Set Up
+
+        catalogueItemRepository.save(new CatalogueItemEntity("1", "Green Maple Leaf",
+                "ImageURL", 10.0, 100, "CLEAR"));
+
+        catalogueItemRepository.save(new CatalogueItemEntity("2", "Golden Maple Leaf",
+                "ImageURL", 20.0, 100, "DARK"));
+
+        catalogueItemRepository.save(new CatalogueItemEntity("3", "Red Maple Leaf",
+                "ImageURL", 15.0, 100, "AMBER"));
+
+        catalogueItemRepository.save(new CatalogueItemEntity("11", "Greenish Maple Leaf",
+                "ImageURL", 9.0, 99, "CLEAR"));
+
+        catalogueItemRepository.save(new CatalogueItemEntity("22", "Goldish Maple Leaf",
+                "ImageURL", 19.0, 99, "DARK"));
+
+        catalogueItemRepository.save(new CatalogueItemEntity("33", "Reddish Maple Leaf",
                 "ImageURL", 4.5, 999, "AMBER"));
     }
 }
