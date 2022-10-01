@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
 @Tag(name = "products-controller", description = "Maple Products Controller")
 public class ProductController {
 
@@ -29,7 +28,7 @@ public class ProductController {
         this.catalogueItemService = catalogueItemService;
     }
 
-    @GetMapping
+    @GetMapping (value = "/products")
     @Operation(summary = "Get Maple Catalogue")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved Maple Catalogue.")})
@@ -39,7 +38,7 @@ public class ProductController {
         );
     }
 
-    @GetMapping(value = "{productId}")
+    @GetMapping(value = "/products/{productId}")
     @Operation(summary = "Retrieve a maple product info by productId")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved product info.")})
