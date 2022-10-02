@@ -10,7 +10,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -23,7 +26,6 @@ public class ProductController {
     private final CatalogueItemService catalogueItemService;
 
     public ProductController(ProductService productService, CatalogueItemService catalogueItemService) {
-
         this.productService = productService;
         this.catalogueItemService = catalogueItemService;
     }
