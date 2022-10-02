@@ -27,4 +27,8 @@ public class ProductService {
         return mapper.map(product, MapleSyrupDto.class);
     }
 
+    public MapleSyrupEntity saveProduct(MapleSyrupEntity mapleSyrupEntity) {
+        return productRepository.save(mapleSyrupEntity);
+    }
+
 }
