@@ -12,7 +12,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Maple Syrop Management System API")
+                        .title("Maple Syrup Management System API")
                         .description("This API is to expose endpoints of Maple Shack Management System. ")
                         .version("1.0")
                         .contact(new Contact()
