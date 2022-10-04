@@ -22,7 +22,10 @@ public class CatalogueItemService {
 
     public List<ProductEntity> findByType(MappleType type) {
 
-        return productRepository.findByType(type.toString().toUpperCase());
+        if (type != null) {
+            return productRepository.findByType(type.toString().toUpperCase());
+        }
 
+        return productRepository.findAll();
     }
 }
