@@ -6,20 +6,25 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @Tag(name = "cart-controller", description = "Cart Controller")
 public class CartController {
 
     private final CartService cartService;
+    private final ModelMapper mapper;
 
-    public CartController(CartService cartService) {
+    public CartController(CartService cartService, ModelMapper mapper) {
+
         this.cartService = cartService;
+        this.mapper = mapper;
     }
 
     @GetMapping(value = "/cart")
@@ -29,15 +34,18 @@ public class CartController {
     public ResponseEntity<List<CartLineDto>> getCart() {
         return ResponseEntity.ok(
                 cartService.findCarts()
+                        .stream()
+                        .map(cartLineEntity -> mapper.map(cartLineEntity, CartLineDto.class))
+                        .collect(Collectors.toList())
         );
     }
 
     @PutMapping(value = "/cart")
-    @Operation(summary = "Update CartLine")
+    @Operation(summary = "Create CartLine")
     @ApiResponse(responseCode = "202", description = "Accepted")
     public ResponseEntity<Void> addCart(
             @RequestParam @NotNull String productId) {
-        cartService.save(productId);
+        cartService.saveCartLine(productId);
         return ResponseEntity.accepted().build();
     }
 

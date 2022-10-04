@@ -14,8 +14,8 @@ import java.util.Objects;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tbl_mapleSyrup")
-public class MapleSyrupEntity {
+@Table(name = "tbl_product")
+public class ProductEntity {
     @Id
     private String id;
     @Column
@@ -29,13 +29,15 @@ public class MapleSyrupEntity {
     @Column
     private int stock;
     @Column
+    int maxQty;
+    @Column
     private String type;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof MapleSyrupEntity)) return false;
-        MapleSyrupEntity that = (MapleSyrupEntity) o;
+        if (!(o instanceof ProductEntity)) return false;
+        ProductEntity that = (ProductEntity) o;
         return id.equals(that.id);
     }
 

@@ -1,34 +1,33 @@
 package co.maplr.sugarshack.domain.service;
 
-import co.maplr.sugarshack.api.dto.MapleSyrupDto;
-import co.maplr.sugarshack.domain.entity.MapleSyrupEntity;
+import co.maplr.sugarshack.domain.entity.ProductEntity;
 import co.maplr.sugarshack.domain.repository.ProductRepository;
 import co.maplr.sugarshack.exception.ProductNotFoundException;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
     ProductRepository productRepository;
-    ModelMapper mapper;
 
     @Autowired
-    public ProductService(ProductRepository productRepository, ModelMapper mapper) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.mapper = mapper;
     }
 
-    public MapleSyrupDto getProductById(String productId) {
+    public ProductEntity getProductById(String productId) {
 
-        MapleSyrupEntity product = productRepository.findProductById(productId)
+        return productRepository.findProductById(productId)
                 .orElseThrow(() -> new ProductNotFoundException(productId));
-
-        return mapper.map(product, MapleSyrupDto.class);
     }
 
-    public MapleSyrupEntity saveProduct(MapleSyrupEntity mapleSyrupEntity) {
-        return productRepository.save(mapleSyrupEntity);
+    public ProductEntity saveProduct(ProductEntity productEntity) {
+        return productRepository.save(productEntity);
+    }
+
+    public ProductEntity updateProductStock(ProductEntity productEntity, int newStock) {
+        productEntity.setStock(newStock);
+        return productRepository.save(productEntity);
     }
 
 }
