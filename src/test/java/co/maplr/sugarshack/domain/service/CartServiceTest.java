@@ -44,6 +44,7 @@ class CartServiceTest {
 
     @Test
     void delete() {
+        cartService.deleteAll();
         cartService.saveCartLine("11");
         assertEquals(1, cartService.findCarts().size());
         cartService.delete("11");

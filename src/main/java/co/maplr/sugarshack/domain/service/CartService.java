@@ -32,11 +32,15 @@ public class CartService {
                                 product.getName(),
                                 product.getImage(),
                                 product.getPrice(),
-                                0));
+                                1));
     }
 
     public void delete(String productId) {
         cartRepository.deleteById(productId);
+    }
+
+    public void deleteAll() {
+        cartRepository.deleteAll();
     }
 
     public void update(String productId, int qty) {

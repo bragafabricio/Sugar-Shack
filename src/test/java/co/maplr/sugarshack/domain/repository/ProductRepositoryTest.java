@@ -19,7 +19,7 @@ class ProductRepositoryTest {
 
     @Test
     void findProductByIdTest() {
-        String mapleName = "Greenish Maple Leaf";
+        String mapleName = "Mrs. Betterworth's";
         Optional<ProductEntity> testMaple = repository.findProductById("11");
 
         assertNotNull(testMaple);
