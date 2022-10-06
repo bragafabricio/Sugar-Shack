@@ -30,7 +30,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Product By Id",
+					"name": "Get Product By Id 1",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -46,6 +46,151 @@
 							"path": [
 								"products",
 								"1"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id 2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id 3",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"3"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id 11",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"11"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id 22",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/22",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"22"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id 33",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/33",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"33"
 							],
 							"query": [
 								{
@@ -88,7 +233,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Products By Type",
+					"name": "Get Products By Type AMBER",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -113,6 +258,70 @@
 									"key": null,
 									"value": "",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products By Type DARK",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products?type=DARK",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "DARK"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products By Type CLEAR",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products?type=CLEAR",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "CLEAR"
 								}
 							]
 						}
@@ -148,6 +357,152 @@
 			"name": "Cart",
 			"item": [
 				{
+					"name": "Get CartLine",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cart",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create CartLine",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pancakes",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "shack",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cart?productId=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update CartLine Product's Quantity",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pancakes",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "shack",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cart?productId=1&newQty=11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "1"
+								},
+								{
+									"key": "newQty",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Update CartLine Product's Quantity",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pancakes",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "shack",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cart?productId=10&newQty=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cart"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "10"
+								},
+								{
+									"key": "newQty",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete CartLine by productId",
 					"request": {
 						"auth": {
@@ -181,113 +536,6 @@
 									"key": "productId",
 									"value": "1",
 									"description": "Delete CartLine"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get CartLine",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cart",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create CartLine",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cart?productId=1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart"
-							],
-							"query": [
-								{
-									"key": "productId",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update CartLine Product's Quantity",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cart?productId=1&newQty=11",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart"
-							],
-							"query": [
-								{
-									"key": "productId",
-									"value": "1"
-								},
-								{
-									"key": "newQty",
-									"value": "11"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Invalid Update CartLine Product's Quantity",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/cart?productId=1&newQty=10",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"cart"
-							],
-							"query": [
-								{
-									"key": "productId",
-									"value": "1"
-								},
-								{
-									"key": "newQty",
-									"value": "10"
 								}
 							]
 						}
@@ -329,7 +577,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n  {\n    \"productId\": \"1\",\n    \"qty\": 15\n  }\n]",
+							"raw": "[\n  {\n    \"productId\": \"1\",\n    \"qty\": 10\n  },\n  {\n    \"productId\": \"33\",\n    \"qty\": 10\n  }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
